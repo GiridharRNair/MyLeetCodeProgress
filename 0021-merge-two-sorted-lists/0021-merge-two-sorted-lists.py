@@ -18,12 +18,12 @@ class Solution:
         
         if list1.val > list2.val:
             head = ListNode(list2.val)
-            outList = head
             list2 = list2.next
         else:
             head = ListNode(list1.val)
-            outList = head
             list1 = list1.next
+            
+        outList = head
             
         while list1 and list2:
             if list1.val > list2.val:
