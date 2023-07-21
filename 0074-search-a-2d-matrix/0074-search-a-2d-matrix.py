@@ -13,14 +13,14 @@ class Solution:
         if top > bottom:
             return False
         row = (top + bottom) // 2
-        left = 0
-        right = len(matrix[row]) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if matrix[row][mid] < target:
-                left = mid + 1
-            elif matrix[row][mid] > target:
-                right = mid - 1
+        low = 0
+        high = len(matrix[row]) - 1
+        while low <= high:
+            mid = (low + high) // 2
+            if matrix[row][mid] > target:
+                high = mid - 1
+            elif matrix[row][mid] < target:
+                low = mid + 1
             else:
                 return True
         return False
