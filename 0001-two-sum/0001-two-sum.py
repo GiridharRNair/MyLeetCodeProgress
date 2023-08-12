@@ -5,8 +5,18 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+        pairs = dict()
+        for idx, num in enumerate(nums):
+            diff = target - num
+            if diff in pairs:
+                return [nums.index(diff), idx]
+            pairs[num] = diff
+            
+            
+            
+            """
+            [3, 3]
+            [2, 4]
+            
+            """
         
