@@ -1,25 +1,14 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        
-        # set with all the areas
-#         areas = set()
-        
-#         # iterate thru heights
-#         for i in range(len(height)):
-#             for j in range(i, len(height)):
-#                 areas.add(min(height[i], height[j]) * (j - i))
-        
-#         return max(areas)
-
+        max_area = 0
         left = 0
         right = len(height) - 1
-        area = 0
-        while left <= right:
-            area = max(min(height[left], height[right]) * (right - left), area)
+        while (left < right):
             if height[left] < height[right]:
+                area = (right - left) * height[left]
                 left += 1
             else:
+                area = (right - left) * height[right]
                 right -= 1
-            
-        return area
-            
+            max_area = max(area, max_area)
+        return max_area
