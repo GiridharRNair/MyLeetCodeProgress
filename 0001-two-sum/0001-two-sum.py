@@ -5,18 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        pairs = dict()
-        for idx, num in enumerate(nums):
-            diff = target - num
-            if diff in pairs:
-                return [nums.index(diff), idx]
-            pairs[num] = diff
-            
-            
-            
-            """
-            [3, 3]
-            [2, 4]
-            
-            """
+        dict_nums = dict()
+        for index, num in enumerate(nums):
+            if (target - num) in dict_nums:
+                return [index, dict_nums[target - num]]
+            else:
+                dict_nums[num] = index
+        return None
+        
         
