@@ -5,12 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        dict_nums = dict()
-        for index, num in enumerate(nums):
-            if (target - num) in dict_nums:
-                return [index, dict_nums[target - num]]
-            else:
-                dict_nums[num] = index
-        return None
-        
-        
+        complement = dict()
+        for idx, num in enumerate(nums):
+            if target - num in complement:
+                return [idx, complement[target - num]]
+            complement[num] = idx
